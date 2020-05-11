@@ -1,0 +1,224 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --spacer: 30px;
+}
+
+body {
+  background-color: #f9f9f9;
+  background-color: #333;
+  overflow-y: scroll;
+}
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+#content {
+  min-width: 800px;
+  padding: 50px 0px;
+  margin: 50px auto;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.2em;
+  color: #eee;
+  background-color: #eee;
+  background-color: #444;
+}
+
+h1, h2 {
+  font-family: Lato;
+}
+
+.text-input {
+  margin-top: 6px;
+  height: 1.5rem;
+}
+
+.cm-span {
+  font-size: 0.95rem;
+}
+
+.inputs-container {
+  margin: 0px auto 75px;
+  
+}
+
+.inputs-wrapper {
+  padding: 30px 30px;
+  border-radius: 5px;
+  background-color: #eee;
+  color: #333;
+}
+
+.board-length-wrapper {
+  margin-bottom: var(--spacer);
+}
+
+.extend-wrapper {
+  margin-bottom: calc(var(--spacer) - 10px);
+  display: flex;
+  align-items: baseline;
+}
+
+.extend-wrapper input {
+  margin-right: 10px;
+}
+
+#board-length, #size-limit {
+  width: 50px;
+}
+
+.size-limit {
+  margin: 0 0 var(--spacer) 0;
+  
+}
+
+
+.measurements-inputs-wrapper {
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+
+  display: flex;
+  align-items: center;
+
+  background-color: #ddd;
+}
+
+.measurement-text-input {
+  height: 25px;
+  max-width: 100px;
+  margin-right: 2px;
+  
+}
+
+
+.repeat-wrapper {
+  box-sizing: border-box;
+  padding: 0 10px;
+  margin: auto;
+
+  display: flex;
+  align-items: baseline;
+
+}
+
+.repeat-wrapper input {
+  height: 25px;
+  max-width: 25px;
+  margin: 0 5px;
+}
+
+.inputs-footer button {
+  --xsize: 75px;
+  --ysize: 25px;
+
+  max-width: var(--xsize);
+  min-width: var(--xsize);
+  max-height: var(--ysize);
+  min-height: var(--ysize);
+  
+  padding: 0;
+  margin-left: auto;
+  border: none;
+  border-radius: 100px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: hsl(100, 100%, 30%);
+
+  background-color: hsl(100, 5%, 650);
+
+  cursor: pointer;
+}
+
+
+#count {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 30px 0;
+}
+
+.info-wrapper {
+  padding: 10px;
+  margin: 0 0 10px;
+  background-color: #656565;
+}
+
+.measurement-info {
+  margin: 0 0 5px 0;
+  color: #eee;
+}
+
+.starting-length-text {
+  /* margin: 0 0 30px 0; */
+  
+  font-size: 1.15rem;
+  color: #bbb;
+
+}
+
+.step-heading {
+  padding: 10px;
+  /* margin: 0 0 10px; */
+  background-color: #656565;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #bbb;
+}
+
+.step-body {
+  min-height: 300px;
+  min-width: 500px;
+  border-radius: 5px;
+
+  padding: 40px;
+  margin: 0 0 30px 0;
+  
+
+  
+  background-color: #555;
+}
+
+.step-text {
+  padding: 10px;
+  /* margin: 0 0 5px 0; */
+  background-color: #656565;
+}
+
+.length-remaining-text {
+  padding: 10px;
+  margin: 20px 0 0 0;
+
+  background-color: #4e4e4e;
+
+  font-size: 1rem;
+  color: #aaa;
+  
+  ;
+}
+
+.summary-highlight {
+  /* color: #bbb; */
+  font-weight: 700;
+}
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="root">
+
+        <div id="content"> <!-- START OF CONTENT-->
+            
+            <div class="inputs-container">
+                
+                <div class="inputs-wrapper">
+
+                    <div class="board-length-wrapper column">
+                        <label for="board-length">The uncut planks are</label>
+                        <input type="text" id="board-length" class="text-input" value="391"> <span class="cm-span">cm </span><span>long.</span>
+                    </div>
+                    
+                    <div class="extend-wrapper">
+                        <input type="checkbox" id="extend-checkbox">
+                        <label for="extend-checkbox">Extend planks with extra bits to fulfil a measurement.</label>
+                    </div>
+                    
+                    <div class="size-limit column hidden">
+                        <label for="size-limit">The extension bits must be no less than </label>
+                        <input type="text" id="size-limit" class="text-input" placeholder="0"> <span class="cm-span">cm</span><span> large.</span>
+                    </div>
+                    
+                    <div class="inputs-footer">
+                        <!-- <button id="generate">Generate Instructions</button> -->
+                        <div class="add-measurements-heading">Add a new cut:</div>
+                        <div class="measurements-inputs-wrapper">
+                            <input type="text" id="add-cut" class="measurement-text-input"><span class="cm-span">cm</span>
+
+                            <div class="repeat-wrapper">
+                                <!-- <div class="repeat-text">Repeat</div> -->
+                                <input type="text" id="repeat-measurement">
+                                <div>times.</div>
+                            </div>
+                            <button id="add-cut-button">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div id="count"></div>
+            <div id="app"></div>
+            
+        </div> <!-- END OF CONTENT -->
+
+    </div>
+
+    <script src="./src/Instructions.js"></script>
+    <script src="./src/planksApp.js"></script>
+</body>
+</html>
