@@ -86,7 +86,7 @@ inputsWrapper.addEventListener("click", e => {
         
         
     } else if (id === extendCheckbox.id) {
-        toggleHideSizeLimit(extendCheckbox.checked);
+        toggleHideSizeLimit();
         displayResults();
     }
 
@@ -163,9 +163,6 @@ function calculatePlanks(boardLength) {
     resetTotalCuts();
     resetBoardCount();
     
-    const extensions = document.getElementById('extend-checkbox').checked;
-    const extensionsFromNew = extendFromNewCheckbox.checked;
-    
     length = boardLength;
     overages = [];
     
@@ -230,7 +227,7 @@ function calculatePlanks(boardLength) {
                 instructions.addLine(`Cut off ${measurement}cm from it.`);
                 
 
-            } else if (bestExtension && desiredCut >= getReusableSizeLimit() && extensions) {
+            } else if (bestExtension && desiredCut >= getReusableSizeLimit() && willExtendBoards()) {
 
                 const finalCut = cut(cutFromBestBit(bestExtension, desiredCut));
                 instructions.addLine(`Get the ${bestExtension}cm piece you set aside earlier.`)
@@ -249,7 +246,7 @@ function calculatePlanks(boardLength) {
                 
 
 
-            } else if ((getBoardLength() - length >= measurement) && extensionsFromNew && isLongEnough(measurement - length)) {
+            } else if ((getBoardLength() - length >= measurement) && willExtendFromNewPlanks() && isLongEnough(measurement - length)) {
                 
                 const prevLength = length;
                 cutLength(length);
@@ -382,10 +379,14 @@ function findBestBit(requiredAmount) {
 
 }
 
-toggleHideSizeLimit(extendCheckbox.checked);
+toggleHideSizeLimit();
 
 function willExtendBoards() {
     return extendCheckbox.checked;
+}
+
+function willExtendFromNewPlanks() {
+    return extendFromNewCheckbox.checked;
 }
 
 function toggleHideSizeLimit() {
