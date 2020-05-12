@@ -211,7 +211,6 @@ h1, h2 {
 
   background-color: #4e4e4e;
 
-  font-size: 1rem;
   color: #aaa;
   
   ;
@@ -222,3 +221,8 @@ h1, h2 {
   font-weight: 700;
 }
 
+@media all and (max-width: 950px) {
+  #content {
+    font-size: 0.9rem;
+  }
+}
