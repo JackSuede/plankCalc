@@ -28,6 +28,7 @@ class Instructions {
         this.stepsFragment.appendChild(infoWrapper);
         
         const lines = document.createElement('div');
+        lines.className = 'lines';
         lines.appendChild(this.createHeading());
         
         for (let ii = 0; ii < this.steps.length; ii++) {
