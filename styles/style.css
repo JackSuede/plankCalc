@@ -170,8 +170,6 @@ h1, h2 {
 }
 
 .starting-length-text {
-  /* margin: 0 0 30px 0; */
-  
   font-size: 1.15rem;
   color: #bbb;
 
@@ -213,7 +211,6 @@ h1, h2 {
 
   color: #aaa;
   
-  ;
 }
 
 .summary-highlight {
@@ -225,14 +222,22 @@ h1, h2 {
 
 @media all and (max-width: 600px) {
   #content {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
     max-width: 600px;
     font-size: 0.9rem;
 
   }
 
   .step-heading {
-    
     font-size: 0.9rem;
     
+  }
+
+  .starting-length-text {
+    font-size: 0.9rem;
+  
   }
 }
