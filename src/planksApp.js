@@ -7,6 +7,9 @@ Once the user knows their parameters, they will recognize them.
 So, when they generate instructions, the param fields will
 stand alone at the top. There will be a button to edit measurements.
 
+calculation is wrong if it hasnt yet displayed the results and the cut is multiplied.
+It only considers the first cut.
+
 */
 
 
@@ -282,6 +285,7 @@ function calculatePlanks(boardLength) {
         instructions.render();
   }
   
+  // not true if board is 100cm and cut is 60cm x4. it only accounts for the first 60cm.
   countDiv.innerHTML = `You will need ${boardCount} boards<br/>if each board is ${boardLength}cm.`
   
   

@@ -221,9 +221,13 @@ h1, h2 {
   font-weight: 700;
 }
 
-@media all and (max-width: 950px) {
+/* Continue making this mobile friendly.. */
+
+@media all and (max-width: 600px) {
   #content {
+    max-width: 600px;
     font-size: 0.9rem;
+
   }
 
   .step-heading {
