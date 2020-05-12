@@ -86,6 +86,8 @@ inputsWrapper.addEventListener("click", e => {
     } else if (id === extendCheckbox.id) {
         toggleHideSizeLimit();
         displayResults();
+    } else if (id === extendFromNewCheckbox.id ) {
+        displayResults();
     }
 
 });
