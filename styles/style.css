@@ -252,7 +252,6 @@ h1, h2 {
     min-width: 0px;
     max-width: 400px;
   
-    padding-left: 15px;
-    padding-right: 15px;
+   padding: 40px 0;
   }
 }
