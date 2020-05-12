@@ -9,8 +9,6 @@ Once the user knows their parameters, they will recognize them.
 So, when they generate instructions, the param fields will
 stand alone at the top. There will be a button to edit measurements.
 
-
-Refactor unify extend checkbox. code for it is written anew in several places.
 */
 
 
