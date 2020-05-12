@@ -9,6 +9,8 @@ Once the user knows their parameters, they will recognize them.
 So, when they generate instructions, the param fields will
 stand alone at the top. There will be a button to edit measurements.
 
+
+Refactor unify extend checkbox. code for it is written anew in several places.
 */
 
 
@@ -21,6 +23,7 @@ const countDiv = document.getElementById("count");
 const boardLengthInput = document.getElementById('board-length');
 const sizeLimitInput = document.getElementById("size-limit");
 const extendCheckbox = document.getElementById("extend-checkbox");
+const extendFromNewCheckbox = document.getElementById("extend-reduced-checkbox");
 const addCutInput = document.getElementById('add-cut');
 const repeatMeasurement = document.getElementById('repeat-measurement');
 
@@ -49,9 +52,6 @@ inputsWrapper.addEventListener("keyup", e => {
     if (checkCriteria) {
         
         if ((id === addCutInput.id || id === repeatMeasurement.id) && e.key === "Enter") {
-            
-            
-            
                 
                 addMeasurement(measurement);
                 addCutInput.value = '';
@@ -164,6 +164,7 @@ function calculatePlanks(boardLength) {
     resetBoardCount();
     
     const extensions = document.getElementById('extend-checkbox').checked;
+    const extensionsFromNew = extendFromNewCheckbox.checked;
     
     length = boardLength;
     overages = [];
@@ -180,8 +181,6 @@ function calculatePlanks(boardLength) {
         instructions.startingLength = length;
         instructions.iteration = ii;
         
-
-
         /*
         if the measurement is larger than the full board size.
         */
@@ -204,7 +203,7 @@ function calculatePlanks(boardLength) {
                 instructions.addLine(`Get the set aside plank of ${bestFit}cm.`);
                 instructions.addLine(`Cut off ${measurement}cm from it..`);
                 instructions.addLine(`Set aside the remaining ${bestFit - measurement}cm.`);
-                
+            
             } else if (ii != 0) {
                 instructions.addLine(`From the ${length}cm left over from the previous cut:`)
                 instructions.addLine(`Cut ${measurement}cm.`);
@@ -250,6 +249,19 @@ function calculatePlanks(boardLength) {
                 
 
 
+            } else if ((getBoardLength() - length >= measurement) && extensionsFromNew && isLongEnough(measurement - length)) {
+                
+                const prevLength = length;
+                cutLength(length);
+                instructions.addLine(`In addition to the leftover ${prevLength}cm...`);
+                newBoard(getBoardLength()); // sets length to new board length
+                
+                const difference = measurement - prevLength;
+                instructions.addLine(`Grab a new board and cut ${difference}cm from it.`);
+                cutLength(difference);
+                instructions.addLine(`Now join the ${prevLength}cm piece to the ${difference}cm piece.`);
+                
+                
             } else {
 
                 instructions.addLine(`Set aside the extra: ${length}cm.`);
@@ -363,6 +375,7 @@ function findBestBit(requiredAmount) {
             return bestBit;
 
         } else {
+
             return false;
         }
   }
@@ -390,10 +403,14 @@ function toggleHideSizeLimit(condition) {
 
 function isLongEnough(overage) {
     return overage >= getReusableSizeLimit();
+    console.log(getReusableSizeLimit());
+
   }
 
 function getReusableSizeLimit() {
-    return parseInt(sizeLimitInput.value) || 0;
+    return parseInt(sizeLimitInput.value)|| 0;
+    console.log(getReusableSizeLimit());
+    
 }
 
 function getBoardLength() {

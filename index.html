@@ -18,28 +18,31 @@
 
                     <div class="board-length-wrapper column">
                         <label for="board-length">The uncut planks are</label>
-                        <input type="text" id="board-length" class="text-input" value="391"> <span class="cm-span">cm </span><span>long.</span>
+                        <input type="text" id="board-length" class="text-input" value="100"> <span class="cm-span">cm </span><span>long.</span>
                     </div>
                     
                     <div class="extend-wrapper">
-                        <input type="checkbox" id="extend-checkbox">
+                        <input type="checkbox" id="extend-checkbox" checked>
                         <label for="extend-checkbox">Extend planks with extra bits to fulfil a measurement.</label>
                     </div>
                     
                     <div class="size-limit column hidden">
+                        <input type="checkbox" id="extend-reduced-checkbox" checked>
+                        <label for="extend-reduced-checkbox">Cut from new planks to fulfil a measurement.</label>
+                        <br/>
                         <label for="size-limit">The extension bits must be no less than </label>
-                        <input type="text" id="size-limit" class="text-input" placeholder="0"> <span class="cm-span">cm</span><span> large.</span>
+                        <input type="text" id="size-limit" class="text-input" placeholder="0" value="0"> <span class="cm-span">cm</span><span> large.</span>
                     </div>
                     
                     <div class="inputs-footer">
                         <!-- <button id="generate">Generate Instructions</button> -->
                         <div class="add-measurements-heading">Add a new cut:</div>
                         <div class="measurements-inputs-wrapper">
-                            <input type="text" id="add-cut" class="measurement-text-input"><span class="cm-span">cm</span>
+                            <input type="text" id="add-cut" class="measurement-text-input" value="60"><span class="cm-span">cm</span>
 
                             <div class="repeat-wrapper">
                                 <!-- <div class="repeat-text">Repeat</div> -->
-                                <input type="text" id="repeat-measurement">
+                                <input type="text" id="repeat-measurement" value="4">
                                 <div>times.</div>
                             </div>
                             <button id="add-cut-button">Add</button>
