@@ -3,8 +3,6 @@
 New module? Either way, restructure code.
 Look for tidying oportunities.
 
-User needs to be able to input their own measurements.
-
 Once the user knows their parameters, they will recognize them.
 So, when they generate instructions, the param fields will
 stand alone at the top. There will be a button to edit measurements.
