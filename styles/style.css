@@ -4,254 +4,140 @@
   box-sizing: border-box;
 }
 
-:root {
-  --spacer: 30px;
-  --mobile-width: 400px;
-}
-
-body {
-  background-color: #f9f9f9;
-  background-color: #333;
-  overflow-y: scroll;
-}
-#root {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hidden {
-  visibility: hidden;
-}
-
-#content {
-  width: 800px;
-  padding: 50px 0px;
-  margin: 50px auto;
-  border-radius: 5px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  font-size: 1.2em;
-  color: #eee;
-  background-color: #eee;
-  background-color: #444;
-}
-
 h1, h2 {
   font-family: Lato;
 }
 
-.text-input {
-  margin-top: 6px;
-  height: 1.5rem;
+body {
+  overflow-y: scroll;
 }
 
-.cm-span {
-  font-size: 0.95rem;
+:root {
+  --spacer: 30px;
+  --mobile-width: 400px;
+  --color-good: hsl(100, 100%, 30%);
+  --color-good-2: hsl(100, 5%, 65%);
+  
+  --color-900: #f9f9f9;
+  --color-800: #eee;
+  --color-700: #ddd;
+  --color-600: #bbb;
+  --color-500: #aaa;
+  --color-400: #656565;
+  --color-300: #555;
+  --color-200: #444;
+  --color-100: #333;
 }
 
-.inputs-container {
-  margin: 0px auto 75px;
+#root {
+  background-color: var(--color-100);
+
+}
+
+
+#content {
   
 }
 
+.inputs-container {
+  padding: 10px;
+  background-color: var(--color-300);
+}
+
 .inputs-wrapper {
-  padding: 30px 30px;
-  border-radius: 5px;
-  background-color: #eee;
-  color: #333;
+  background-color: var(--color-900);
+
+}
+
+.text-input {
+
+}
+
+.cm-span {
+  
 }
 
 .board-length-wrapper {
-  margin-bottom: var(--spacer);
+  
 }
 
 .extend-wrapper {
-  margin-bottom: calc(var(--spacer) - 10px);
-  display: flex;
-  align-items: baseline;
+
 }
 
 .extend-wrapper input {
-  margin-right: 10px;
+
 }
 
 #board-length, #size-limit {
-  width: 50px;
+
 }
 
 .size-limit {
-  margin: 0 0 var(--spacer) 0;
   
 }
 
 
 .measurements-inputs-wrapper {
-  padding: 20px;
-  border-radius: 5px;
-  margin-top: 10px;
 
-  display: flex;
-  align-items: center;
 
-  background-color: #ddd;
 }
 
 .measurement-text-input {
-  height: 25px;
-  max-width: 100px;
-  margin-right: 2px;
   
 }
 
 
 .repeat-wrapper {
-  box-sizing: border-box;
-  padding: 0 10px;
-  margin: auto;
-
-  display: flex;
-  align-items: baseline;
 
 }
 
 .repeat-wrapper input {
-  height: 25px;
-  max-width: 25px;
-  margin: 0 5px;
+ 
 }
 
 .inputs-footer button {
-  --xsize: 75px;
-  --ysize: 25px;
-
-  max-width: var(--xsize);
-  min-width: var(--xsize);
-  max-height: var(--ysize);
-  min-height: var(--ysize);
-  
-  padding: 0;
-  margin-left: auto;
-  border: none;
-  border-radius: 100px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  
-  font-size: 0.9rem;
-  font-weight: 900;
-  color: hsl(100, 100%, 30%);
-
-  background-color: hsl(100, 5%, 650);
 
   cursor: pointer;
 }
 
 
 #count {
-  font-size: 20px;
-  font-weight: 700;
-  margin: 0 0 30px 0;
+
 }
 
 .info-wrapper {
-  padding: 10px;
-  margin: 0 0 10px;
-  background-color: #656565;
+
 }
 
 .measurement-info {
-  margin: 0 0 5px 0;
-  color: #eee;
+
 }
 
 .starting-length-text {
-  font-size: 1.15rem;
-  color: #bbb;
 
 }
 
 .step-heading {
-  padding: 10px;
-  /* margin: 0 0 10px; */
-  background-color: #656565;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #bbb;
+
 }
 
 .step-body {
-  min-height: 300px;
-  min-width: 500px;
-  border-radius: 5px;
 
-  padding: 40px;
-  margin: 0 0 30px 0;
-  
-  background-color: #555;
 }
 
 .step-text {
-  padding: 10px;
-  /* margin: 0 0 5px 0; */
-  background-color: #656565;
+
 }
 
 .length-remaining-text {
-  padding: 10px;
-  margin: 20px 0 0 0;
-
-  background-color: #4e4e4e;
-
-  color: #aaa;
   
 }
 
 .summary-highlight {
-  /* color: #bbb; */
-  font-weight: 700;
+
 }
 
-/* Continue making this mobile friendly.. */
-
-@media all and (max-width: 600px) {
-
-  #root {
-    display: block;
-  }
-
-  #content {
-    max-width: 400px;
-    margin: 0px;
-    padding-left: 0;
-    padding-right: 0;
-
-    padding: 50px 0px;
-    margin: 50px auto;
-
-    font-size: 0.9rem;
-
-  }
-
-  .step-heading {
-    font-size: 0.9rem;
-    
-  }
-
-  .starting-length-text {
-    font-size: 0.9rem;
-  
-  }
-
-  .step-body {
-    min-width: 0px;
-    max-width: 400px;
-  
-   padding: 40px 0;
-  }
+.hidden {
+  visibility: hidden;
 }
