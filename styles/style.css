@@ -1,7 +1,7 @@
 * {
   padding: 0px;
   margin: 0px;
-  box-sizing: border-box;
+  box-sizing: border-box; 
 }
 
 h1, h2 {
@@ -36,33 +36,50 @@ body {
 
 
 #content {
-  
+  width: 100%;
+  padding: 10px;
+  background-color: var(--color-200);
 }
 
 .inputs-container {
   padding: 10px;
   background-color: var(--color-300);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .inputs-wrapper {
+  
+  padding: 10px;
   background-color: var(--color-900);
 
 }
 
 .text-input {
-
+  width: 5ch;
 }
 
 .cm-span {
-  
+  font-size: 0.8rem;
 }
 
 .board-length-wrapper {
+  margin-bottom: var(--spacer);
+  padding: 10px var(--spacer);
+  
+  background-color: var(--color-800);
   
 }
 
 .extend-wrapper {
-
+  margin-bottom: var(--spacer);
+  padding: 10px var(--spacer);
+  background-color: var(--color-800);
+  
 }
 
 .extend-wrapper input {
@@ -74,12 +91,23 @@ body {
 }
 
 .size-limit {
+  margin-bottom: var(--spacer);
+  padding: var(--spacer);
   
+  display: inline-block;
+  
+  background: var(--color-800);
 }
 
 
 .measurements-inputs-wrapper {
+  padding: var(--spacer);
+  margin-bottom: var(--spacer);
 
+  display: flex;
+  align-items: center;
+  
+  background: var(--color-800);
 
 }
 
@@ -89,11 +117,11 @@ body {
 
 
 .repeat-wrapper {
-
+  margin: 0 10px;
 }
 
 .repeat-wrapper input {
- 
+ width: 4ch;
 }
 
 .inputs-footer button {
