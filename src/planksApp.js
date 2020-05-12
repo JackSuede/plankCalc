@@ -384,11 +384,15 @@ function findBestBit(requiredAmount) {
 
 toggleHideSizeLimit(extendCheckbox.checked);
 
-function toggleHideSizeLimit(condition) {
+function willExtendBoards() {
+    return extendCheckbox.checked;
+}
+
+function toggleHideSizeLimit() {
 
     const sizeLimitWrapper = document.querySelector(".size-limit");
 
-    if (condition === true) {
+    if (willExtendBoards()) {
         sizeLimitWrapper.classList.remove("hidden");
     } else {
         sizeLimitWrapper.classList.add("hidden");
