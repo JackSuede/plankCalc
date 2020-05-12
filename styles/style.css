@@ -225,4 +225,10 @@ h1, h2 {
   #content {
     font-size: 0.9rem;
   }
+
+  .step-heading {
+    
+    font-size: 0.9rem;
+    
+  }
 }
