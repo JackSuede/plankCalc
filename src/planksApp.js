@@ -3,12 +3,8 @@
 New module? Either way, restructure code.
 Look for tidying oportunities.
 
-Once the user knows their parameters, they will recognize them.
-So, when they generate instructions, the param fields will
-stand alone at the top. There will be a button to edit measurements.
-
-calculation is wrong if it hasnt yet displayed the results and the cut is multiplied.
-It only considers the first cut.
+Hav a bar at the top that mirrors the values in the inputs. the bar at the top is
+concise and follows the scroll.
 
 checkCriteria is a really bad name.
 */

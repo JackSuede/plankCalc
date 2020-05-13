@@ -3,28 +3,23 @@
 
     inputsWrapper.addEventListener("keyup", e => {
         const id = e.target.id;
-    
         
         const measurement = parseInt(addCutInput.value);
         const plankSize = (parseInt(boardLengthInput.value));
-        const checkCriteria = checkMeasurement(measurement) && checkPlankLength(plankSize)
+        const allRequiredIsFilled = checkMeasurement(measurement) && checkPlankLength(plankSize)
     
-        if (checkCriteria) {
+        if (allRequiredIsFilled) {
             
             if ((id === addCutInput.id || id === repeatMeasurement.id) && e.key === "Enter") {
-                    
                     addMeasurement(measurement);
                     addCutInput.value = '';
                     displayResults();
-                    
-                 
             } 
         }
         
         if ((id === sizeLimitInput.id 
             || id === boardLengthInput.id) 
             && measurements.length) {
-                
                 
                 displayResults();
         }
