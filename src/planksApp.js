@@ -4,9 +4,10 @@ New module? Either way, restructure code.
 Look for tidying oportunities.
 
 Hav a bar at the top that mirrors the values in the inputs. the bar at the top is
-concise and follows the scroll.
+concise and follows the scroll. It should have the option to start over.
 
-checkCriteria is a really bad name.
+Each step body should be both deletable and minimizable (ie marked complete).
+
 */
 
 
