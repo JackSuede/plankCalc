@@ -14,6 +14,7 @@ body {
 
 :root {
   --spacer: 20px;
+  --spacer-macro: 40px;
   --padder: 30px;
   --mobile-width: 400px;
   --color-good: hsl(100, 100%, 30%);
@@ -25,12 +26,13 @@ body {
   --color-600: #bbb;
   --color-500: #aaa;
   --color-400: #656565;
-  --color-300: #555;
+  --color-300: #5a5a5a;
   --color-200: #444;
   --color-100: #333;
 }
 
 #root {
+  min-height: 100vh;
   background-color: var(--color-100);
 
 }
@@ -46,15 +48,19 @@ body {
   background-color: var(--color-200);
 }
 
+
+
 .inputs-container {
+  /* Child of Content */
   padding: 10px;
-  background-color: var(--color-300);
+  margin: 0 0 var(--spacer-macro) 0;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   
+  background-color: var(--color-300);
 }
 
 .inputs-wrapper {
@@ -155,39 +161,70 @@ body {
 
 
 #count {
+  /* Child of Content */
+  margin: 0 0 var(--spacer-macro) 0;
   color: var(--color-900);
 }
 
-.info-wrapper {
-
-}
-
-.measurement-info {
-
-}
-
-.starting-length-text {
-
-}
-
-.step-heading {
+#app { 
+  /* Child of Content */
 
 }
 
 .step-body {
+  /* Child of App */
+  padding: 10px;
+  margin: 10px 0;
 
+  color: var(--color-700);
+  background-color: var(--color-200);
+}
+
+.info-wrapper {
+  padding: var(--padder);
+  background-color: var(--color-400);
+}
+
+.measurement-info {
+  font-size: 1.1rem;
+}
+
+.starting-length-text {
+  color: var(--color-600);
+  font-weight: bold;
+}
+
+
+.step-heading {
+  padding: var(--padder);
+  padding-bottom: 20px;
+  background-color: var(--color-100);
 }
 
 .step-text {
+  padding-bottom: 20px;
+  padding-left: var(--padder);
 
-}
-
-.length-remaining-text {
+  background-color: var(--color-100);
   
 }
 
-.summary-highlight {
+.final-step-spacer {
+  padding: 0 0 10px 0;
+}
 
+.length-remaining-text {
+  padding: var(--padder);
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  font-size: 0.8rem;
+  color: var(--color-600);
+  background-color: var(--color-100);
+}
+
+.summary-highlight {
+  font-weight: bold;
 }
 
 .hidden {

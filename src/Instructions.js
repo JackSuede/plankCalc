@@ -31,12 +31,22 @@ class Instructions {
         lines.className = 'lines';
         lines.appendChild(this.createHeading());
         
+        
         for (let ii = 0; ii < this.steps.length; ii++) {
             const step = this.steps[ii];
             const line = this.createLineElement(step);
             lines.appendChild(line);
+            
+            if (ii == this.steps.length - 1) {
+                
+                const spacer = this.createLineElement();
+                spacer.classList.add("final-step-spacer");
+                lines.appendChild(spacer);
+
+            }
         }
 
+        
         this.stepsFragment.appendChild(lines);
         this.addLengthRemaining();
 
