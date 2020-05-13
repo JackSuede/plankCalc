@@ -29,7 +29,6 @@ const repeatMeasurement = document.getElementById('repeat-measurement');
 
 // Other selection
 const instructions = new Instructions();
-const inputsWrapper = document.querySelector(".inputs-wrapper");
 
 
 let measurements = [];
@@ -41,67 +40,7 @@ let measurements = [];
 **
 */
 
-inputsWrapper.addEventListener("keyup", e => {
-    const id = e.target.id;
 
-    
-    const measurement = parseInt(addCutInput.value);
-    const plankSize = (parseInt(boardLengthInput.value));
-    const checkCriteria = checkMeasurement(measurement) && checkPlankLength(plankSize)
-
-    if (checkCriteria) {
-        
-        if ((id === addCutInput.id || id === repeatMeasurement.id) && e.key === "Enter") {
-                
-                addMeasurement(measurement);
-                addCutInput.value = '';
-                displayResults();
-                
-             
-        } 
-    }
-    
-    if ((id === sizeLimitInput.id 
-        || id === boardLengthInput.id) 
-        && measurements.length) {
-            
-            
-            displayResults();
-    }
-});
-
-inputsWrapper.addEventListener("click", e => {
-    const id = e.target.id;
-    const plankSize = (parseInt(boardLengthInput.value));
-    const measurement = parseInt(addCutInput.value);
-
-    
-    if (id === 'add-cut-button' && checkPlankLength(plankSize) && checkMeasurement(measurement)) {
-     
-
-        addMeasurement(measurement);
-        addCutInput.value = "";
-        displayResults();
-        
-        
-    } else if (id === extendCheckbox.id && measurements.length) {
-        toggleHideSizeLimit();
-        displayResults();
-    } else if (id === extendFromNewCheckbox.id && measurements.length) {
-        displayResults();
-    }
-
-});
-
-function checkMeasurement(measurement) {
-
-    if (measurement && !isNaN(measurement) ) {
-        return true;    
-        
-    } else {
-        return false;
-    }
-}
 
 function checkPlankLength(plankLength) {
 
@@ -238,13 +177,11 @@ function calculatePlanks(boardLength) {
                 instructions.addLine(`Set aside the remaining ${leftover}cm.`);
                 instructions.addLine(`Extend the ${length}cm length with the ${finalCut}cm piece.`);
                 
-                
                 instructions.totalCut = length + finalCut;
                 cut(length);
                 newBoard(boardLength);
                 instructions.addLine(`Get a new ${boardLength}cm plank.`);
                 instructions.cutLength = length;
-                
 
 
             } else if ((getBoardLength() - length >= measurement) && willExtendFromNewPlanks() && willExtendBoards() && isLongEnough(measurement - length)) {
@@ -276,18 +213,13 @@ function calculatePlanks(boardLength) {
             
         }
 
-        // printItem("")
-        // printItem("TOTAL CUT: " + totalCentimetersCut + "cm");
-
         instructions.totalCut = totalCentimetersCut;
         instructions.setLengthRemaining(length);
         instructions.total = totalCentimetersCut;
         instructions.render();
   }
   
-  // not true if board is 100cm and cut is 60cm x4. it only accounts for the first 60cm.
   countDiv.innerHTML = `You will need ${boardCount} boards<br/>if each board is ${boardLength}cm.`
-  
   
 }
 
