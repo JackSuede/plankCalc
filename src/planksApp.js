@@ -10,6 +10,7 @@ stand alone at the top. There will be a button to edit measurements.
 calculation is wrong if it hasnt yet displayed the results and the cut is multiplied.
 It only considers the first cut.
 
+checkCriteria is a really bad name.
 */
 
 
@@ -64,7 +65,6 @@ inputsWrapper.addEventListener("keyup", e => {
         || id === boardLengthInput.id) 
         && measurements.length) {
             
-            console.log('true');
             
             displayResults();
     }
@@ -84,10 +84,10 @@ inputsWrapper.addEventListener("click", e => {
         displayResults();
         
         
-    } else if (id === extendCheckbox.id) {
+    } else if (id === extendCheckbox.id && measurements.length) {
         toggleHideSizeLimit();
         displayResults();
-    } else if (id === extendFromNewCheckbox.id ) {
+    } else if (id === extendFromNewCheckbox.id && measurements.length) {
         displayResults();
     }
 
@@ -247,7 +247,7 @@ function calculatePlanks(boardLength) {
                 
 
 
-            } else if ((getBoardLength() - length >= measurement) && willExtendFromNewPlanks() && isLongEnough(measurement - length)) {
+            } else if ((getBoardLength() - length >= measurement) && willExtendFromNewPlanks() && willExtendBoards() && isLongEnough(measurement - length)) {
                 
                 const prevLength = length;
                 cutLength(length);

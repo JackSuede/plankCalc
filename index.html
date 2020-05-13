@@ -18,7 +18,7 @@
 
                     <div class="board-length-wrapper column">
                         <label for="board-length">The uncut planks are</label>
-                        <input type="text" id="board-length" class="text-input" value="100"> <span class="cm-span">cm </span><span>long.</span>
+                        <input type="number" id="board-length" class="text-input" value="100"> <span class="cm-span">cm </span><span>long.</span>
                     </div>
                     
                     <div class="extend-wrapper">
@@ -34,7 +34,7 @@
                         <br/> <br/>
                       
                         <label for="size-limit">The extension bits must be no less than </label>
-                        <input type="text" id="size-limit" class="text-input" placeholder="0" value="0"> <span class="cm-span">cm</span><span> large.</span>
+                        <input type="number" id="size-limit" class="text-input" placeholder="0" value="0"> <span class="cm-span">cm</span><span> large.</span>
                     
                     </div>
                     
@@ -43,14 +43,14 @@
                         <!-- <button id="generate">Generate Instructions</button> -->
                         <div class="add-measurements-heading">Add a new cut:</div>
                         <div class="measurements-inputs-wrapper">
-                            <input type="text" id="add-cut" class="measurement-text-input text-input" value="60"><span class="cm-span">cm</span>
+                            <input type="number" id="add-cut" class="measurement-text-input text-input" value="60"><span class="cm-span">cm</span>
 
                             <div class="repeat-wrapper">
                                 <!-- <div class="repeat-text">Repeat</div> -->
-                                <input type="text" id="repeat-measurement" value="4">
+                                <input type="number" id="repeat-measurement" value="4">
                                 <span>times.</span>
                             </div>
-                            <button id="add-cut-button">Add</button>
+                            <button id="add-cut-button">Add Cut</button>
                         </div>
                     </div>
                 </div>

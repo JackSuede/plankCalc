@@ -13,10 +13,11 @@ body {
 }
 
 :root {
-  --spacer: 30px;
+  --spacer: 20px;
+  --padder: 30px;
   --mobile-width: 400px;
   --color-good: hsl(100, 100%, 30%);
-  --color-good-2: hsl(100, 5%, 65%);
+  --color-good-2: hsl(100, 100%, 98%);
   
   --color-900: #f9f9f9;
   --color-800: #eee;
@@ -38,6 +39,10 @@ body {
 #content {
   width: 100%;
   padding: 10px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: var(--color-200);
 }
 
@@ -61,15 +66,25 @@ body {
 
 .text-input {
   width: 5ch;
+  padding: 5px;
+  margin: 0 0 0 5px;
 }
 
 .cm-span {
+  margin: 0 5px 0 0;
   font-size: 0.8rem;
+  display: inline-block;
+  
+  
 }
 
 .board-length-wrapper {
   margin-bottom: var(--spacer);
-  padding: 10px var(--spacer);
+  padding: 10px var(--padder);
+  
+  display: flex;
+
+  align-items: baseline;
   
   background-color: var(--color-800);
   
@@ -77,7 +92,7 @@ body {
 
 .extend-wrapper {
   margin-bottom: var(--spacer);
-  padding: 10px var(--spacer);
+  padding: 10px var(--padder);
   background-color: var(--color-800);
   
 }
@@ -91,8 +106,10 @@ body {
 }
 
 .size-limit {
+  margin-top: -20px;
   margin-bottom: var(--spacer);
-  padding: var(--spacer);
+  padding: var(--padder);
+  padding-top: 5px;
   
   display: inline-block;
   
@@ -101,37 +118,44 @@ body {
 
 
 .measurements-inputs-wrapper {
-  padding: var(--spacer);
+  padding: var(--padder);
   margin-bottom: var(--spacer);
 
   display: flex;
-  align-items: center;
+  align-items: baseline;
   
   background: var(--color-800);
 
 }
 
 .measurement-text-input {
-  
+
 }
 
 
 .repeat-wrapper {
-  margin: 0 10px;
+  margin: 0 var(--padder) 0 10px;
 }
 
 .repeat-wrapper input {
  width: 4ch;
+ padding: 5px;
 }
 
 .inputs-footer button {
-
+  padding: 5px 20px;
+  border: none;
+  border-radius: 100px;
+  
+  color: var(--color-good-2);
+  background: var(--color-good);
+ 
   cursor: pointer;
 }
 
 
 #count {
-
+  color: var(--color-900);
 }
 
 .info-wrapper {
@@ -167,5 +191,5 @@ body {
 }
 
 .hidden {
-  visibility: hidden;
+  display: none;
 }
