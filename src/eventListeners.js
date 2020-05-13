@@ -47,6 +47,35 @@
         }
     
     });
+
+    appDiv.addEventListener("click", e => {
+        
+        const parent = e.target.parentNode;
+        const grandparent = parent.parentNode;
+        const parentHasStepsBody = parent.classList.contains("step-body");
+        const grandparentDoes = grandparent.classList.contains("step-body");
+
+        console.log(parentHasStepsBody);
+        console.log(grandparentDoes);
+        
+        
+        if ( parentHasStepsBody) {
+            const lines = parent.querySelector('.lines');
+            toggleLineVisibility(lines);
+            
+        } else if (grandparentDoes) {
+            console.log(parent.querySelector('.lines'));
+            
+            const lines = grandparent.querySelector('.lines');
+            toggleLineVisibility(lines);
+        }
+    });
+
+    function toggleLineVisibility(lines) {
+        console.log(lines);
+        
+        lines.classList.toggle('hide-lines');
+    }
     
     function checkMeasurement(measurement) {
     
@@ -57,5 +86,7 @@
             return false;
         }
     }
+
+
 
 })();

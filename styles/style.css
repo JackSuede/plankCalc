@@ -35,6 +35,7 @@ body {
   min-height: 100vh;
   background-color: var(--color-100);
 
+
 }
 
 
@@ -202,6 +203,16 @@ body {
   font-weight: bold;
 }
 
+.lines {
+  max-height: 500px;
+
+  transition: 200ms;
+  overflow: hidden;
+}
+
+.hide-lines {
+  max-height: 0px;
+}
 
 .step-heading {
   padding: var(--padder);
