@@ -162,8 +162,16 @@ body {
 
 #count {
   /* Child of Content */
-  margin: 0 0 var(--spacer-macro) 0;
-  color: var(--color-900);
+  width: 100%;
+  padding: 20px;
+  margin: -40px 0 var(--spacer-macro) 0;
+  text-align: center;
+
+  font-weight: bold;
+  color: var(--color-300);
+  background-color: var(--color-700);
+  box-shadow: inset 5px 5px 5px -4px #777;
+
 }
 
 #app { 

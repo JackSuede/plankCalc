@@ -251,7 +251,7 @@ function calculatePlanks(boardLength) {
                 
                 const prevLength = length;
                 cutLength(length);
-                instructions.addLine(`In addition to the leftover ${prevLength}cm...`);
+                instructions.addLine(`In addition to the ${prevLength}cm left over:`);
                 newBoard(getBoardLength()); // sets length to new board length
                 
                 const difference = measurement - prevLength;
