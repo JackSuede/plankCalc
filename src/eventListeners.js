@@ -38,15 +38,15 @@
         
         if (id === 'add-cut-button' && checkPlankLength(plankSize) && checkMeasurement(measurement)) {
          
-    
             addMeasurement(measurement);
             addCutInput.value = "";
             displayResults();
             
-            
         } else if (id === extendCheckbox.id && measurements.length) {
+    
             toggleHideSizeLimit();
             displayResults();
+    
         } else if (id === extendFromNewCheckbox.id && measurements.length) {
             displayResults();
         }

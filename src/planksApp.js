@@ -331,6 +331,7 @@ function toggleHideSizeLimit() {
         sizeLimitWrapper.classList.remove("hidden");
     } else {
         sizeLimitWrapper.classList.add("hidden");
+        extendFromNewCheckbox.checked = false;
     }
 }
 
