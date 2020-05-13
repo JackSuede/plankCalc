@@ -161,11 +161,14 @@ body {
 }
 
 
-#count {
+.count {
   /* Child of Content */
+  transition: all 200ms;
+
+  max-height: 80px;
   width: 100%;
   padding: 20px;
-  margin: -40px 0 var(--spacer-macro) 0;
+  margin: 0 0 10px 0;
   text-align: center;
 
   font-weight: bold;
@@ -173,11 +176,17 @@ body {
   background-color: var(--color-700);
   box-shadow: inset 5px 5px 5px -4px #777;
 
+  overflow: hidden;
+}
+
+.hide-count {
+  max-height: 0px;
+  padding: 0px;
 }
 
 #app { 
   /* Child of Content */
-
+  
 }
 
 .step-body {

@@ -49,7 +49,7 @@
     });
 
     appDiv.addEventListener("click", e => {
-        
+        console.log('hiiiiiiiiii')
         const parent = e.target.parentNode;
         const grandparent = parent.parentNode;
         const parentHasStepsBody = parent.classList.contains("step-body");

@@ -14,7 +14,7 @@ Each step body should be both deletable and minimizable (ie marked complete).
 
 // Display divs
 const appDiv = document.getElementById("app");
-const countDiv = document.getElementById("count");
+const countDiv = document.querySelector('.count');
 
 // Input divs
 const boardLengthInput = document.getElementById('board-length');
@@ -69,12 +69,18 @@ function addMeasurement(measurement) {
     
 }
 
+function showCount() {
+  if (countDiv.classList.contains('hide-count')) {
+    countDiv.className = 'count';
+  }
+}
+
 
 function displayResults() {
 
-    
-        clearResults();
-        calculatePlanks(getBoardLength())
+    showCount();
+    clearResults();
+    calculatePlanks(getBoardLength())
 }
 
 function clearResults() {
