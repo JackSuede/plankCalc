@@ -14,43 +14,44 @@
             
             <div class="inputs-container">
                 
-                <div class="inputs-wrapper">
+                <div class="parameter-inputs">
 
-                    <div class="board-length-wrapper column">
-                        <label for="board-length">The uncut planks are</label>
-                        <input type="number" id="board-length" class="text-input" value="100"> <span class="cm-span">cm </span><span>long.</span>
+                    <div class="board-length column">
+                        <label for="board-length__input">The uncut planks are</label>
+                        <input type="number" id="board-length__input" class="text-input" value="100"> <span class="cm-span">cm </span><span>long.</span>
                     </div>
                     
-                    <div class="extend-wrapper">
-                        <input type="checkbox" id="extend-checkbox" checked>
-                        <label for="extend-checkbox">Extend planks with extra bits to fulfil a measurement.</label>
+                    <div class="extensions">
+                        <input type="checkbox" id="extensions__input" checked>
+                        <label for="extensions__input">Extend planks with extra bits to fulfil a measurement.</label>
                     </div>
                     
-                    <div class="size-limit column hidden">
+                    <div class="refine-extensions column hidden">
                       
-                        <input type="checkbox" id="extend-reduced-checkbox" checked>
-                        <label for="extend-reduced-checkbox">Cut bits from new planks to fulfil a measurement.</label>
+                        <input type="checkbox" id="extend__from-new-checkbox" checked>
+                        <label for="extend__from-new-checkbox">Cut bits from new planks to fulfil a measurement.</label>
                       
                         <br/> <br/>
                       
-                        <label for="size-limit">The extension bits must be no less than </label>
-                        <input type="number" id="size-limit" class="text-input" placeholder="0" value="0"><span class="cm-span">cm</span><span>large.</span>
+                        <label for="extension-size__input">The extension bits must be no less than </label>
+                        <input type="number" id="extension-size__input" class="text-input" placeholder="0" value="0"><span class="cm-span">cm</span><span>large.</span>
                     
                     </div>
                     
                     
-                    <div class="inputs-footer">
-                        <!-- <button id="generate">Generate Instructions</button> -->
-                        <div class="add-measurements-heading">Add a new cut:</div>
-                        <div class="measurements-inputs-wrapper">
-                            <input type="number" id="add-cut" class="measurement-text-input text-input" value="60"><span class="cm-span">cm</span>
+                    <div class="add-cuts">
 
-                            <div class="repeat-wrapper">
+                        <div class="add-cuts__heading">Add a new cut:</div>
+                        
+                        <div class="add-cuts__measurements">
+                            <input type="number" id="add-cut" class="add-cuts__measurements__input text-input" value="60"><span class="cm-span">cm</span>
+
+                            <div class="add-cuts__measurements__repeat">
                                 <!-- <div class="repeat-text">Repeat</div> -->
-                                <input type="number" id="repeat-measurement" value="4">
+                                <input type="number" id="add-cuts__measurements__repeat__input" value="4">
                                 <span>times.</span>
                             </div>
-                            <button id="add-cut-button">Add Cut</button>
+                            <button id="add-cuts__measurements__button">Add Cut</button>
                         </div>
                     </div>
                 </div>

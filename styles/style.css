@@ -50,7 +50,6 @@ body {
 }
 
 
-
 .inputs-container {
   /* Child of Content */
   padding: 10px;
@@ -64,28 +63,14 @@ body {
   background-color: var(--color-300);
 }
 
-.inputs-wrapper {
+.parameter-inputs {
   
   padding: 10px;
   background-color: var(--color-900);
 
 }
 
-.text-input {
-  width: 5ch;
-  padding: 5px;
-  margin: 0 0 0 5px;
-}
-
-.cm-span {
-  margin: 0 5px 0 2px;
-  font-size: 0.8rem;
-  display: inline-block;
-  
-  
-}
-
-.board-length-wrapper {
+.board-length {
   margin-bottom: var(--spacer);
   padding: 10px var(--padder);
   
@@ -97,22 +82,14 @@ body {
   
 }
 
-.extend-wrapper {
+.extensions {
   padding: var(--padder);
   margin-bottom: var(--spacer);
   background-color: var(--color-800);
   
 }
 
-.extend-wrapper input {
-
-}
-
-#board-length, #size-limit {
-
-}
-
-.size-limit {
+.refine-extensions {
   margin-top: -20px;
   margin-bottom: var(--spacer);
   padding: var(--padder);
@@ -124,7 +101,8 @@ body {
 }
 
 
-.measurements-inputs-wrapper {
+
+.add-cuts__measurements {
   padding: var(--padder);
   margin-bottom: var(--spacer);
 
@@ -135,21 +113,16 @@ body {
 
 }
 
-.measurement-text-input {
-
-}
-
-
-.repeat-wrapper {
+.add-cuts__measurements__repeat {
   margin: 0 var(--padder) 0 10px;
 }
 
-.repeat-wrapper input {
- width: 5ch;
+#add-cuts__measurements__repeat__input {
+ width: 7ch;
  padding: 5px;
 }
 
-.inputs-footer button {
+#add-cuts__measurements__button {
   padding: 5px 20px;
   border: none;
   border-radius: 100px;
@@ -189,47 +162,44 @@ body {
   
 }
 
-.step-body {
+.instructions {
   /* Child of App */
-  padding: 10px;
-  margin: 10px 0;
-
+  margin: 0 0 var(--spacer-macro) 0;
   color: var(--color-700);
-  background-color: var(--color-200);
 }
 
-.info-wrapper {
+.instructions__heading {
   padding: var(--padder);
   background-color: var(--color-400);
 }
 
-.measurement-info {
+.instructions__heading__measurement {
   font-size: 1.1rem;
 }
 
-.starting-length-text {
+.instructions__heading__starting-length {
   color: var(--color-600);
   font-weight: bold;
 }
 
-.lines {
+.instructions__steps {
   max-height: 500px;
 
   transition: 200ms;
   overflow: hidden;
 }
 
-.hide-lines {
+.instructions__steps--hide {
   max-height: 0px;
 }
 
-.step-heading {
+.instructions__steps__heading {
   padding: var(--padder);
   padding-bottom: 20px;
   background-color: var(--color-100);
 }
 
-.step-text {
+.instructions__steps__step {
   padding-bottom: 20px;
   padding-left: var(--padder);
 
@@ -237,11 +207,11 @@ body {
   
 }
 
-.final-step-spacer {
+.instructions__steps__final-spacer {
   padding: 0 0 10px 0;
 }
 
-.length-remaining-text {
+.instructions__summary {
   padding: var(--padder);
   padding-top: 10px;
   padding-bottom: 10px;
@@ -251,10 +221,25 @@ body {
   background-color: var(--color-100);
 }
 
+.text-input {
+  width: 8ch;
+  padding: 5px;
+  margin: 0 0 0 5px;
+}
+
+.cm-span {
+  margin: 0 5px 0 2px;
+  font-size: 0.8rem;
+  display: inline-block;
+  
+}
+
 .summary-highlight {
   font-weight: bold;
 }
 
+
+/* used to hide the checkbox inputs. need BEM solution. */
 .hidden {
   display: none;
 }

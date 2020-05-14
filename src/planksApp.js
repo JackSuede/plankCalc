@@ -17,75 +17,18 @@ const appDiv = document.getElementById("app");
 const countDiv = document.querySelector('.count');
 
 // Input divs
-const boardLengthInput = document.getElementById('board-length');
-const sizeLimitInput = document.getElementById("size-limit");
-const extendCheckbox = document.getElementById("extend-checkbox");
-const extendFromNewCheckbox = document.getElementById("extend-reduced-checkbox");
+const boardLengthInput = document.getElementById('board-length__input');
+const sizeLimitInput = document.getElementById("extension-size__input");
+const extendCheckbox = document.getElementById("extensions__input");
+const extendFromNewCheckbox = document.getElementById("extend__from-new-checkbox");
 const addCutInput = document.getElementById('add-cut');
-const repeatMeasurement = document.getElementById('repeat-measurement');
+const repeatMeasurement = document.getElementById('add-cuts__measurements__repeat__input');
 
 // Other selection
 const instructions = new Instructions();
 
 
 let measurements = [];
-
-
-/*
-**
-** Event Listeners:
-**
-*/
-
-
-
-function checkPlankLength(plankLength) {
-
-    if (plankLength && !isNaN(plankLength) ) {
-        return true;
-        
-    } else {
-        return false;
-    }
-}
-
-function addMeasurement(measurement) {
-
-
-    const repitition = parseInt(repeatMeasurement.value);
-
-        if (repitition && !isNaN(repitition)) {
-            
-            for (let ii = 0; ii < repitition; ii++) {
-                measurements.push(measurement);
-                
-            }
-        } else {
-            measurements.push(measurement);
-        }
-    
-        
-    console.log(measurements);
-    
-}
-
-function showCount() {
-  if (countDiv.classList.contains('hide-count')) {
-    countDiv.className = 'count';
-  }
-}
-
-
-function displayResults() {
-
-    showCount();
-    clearResults();
-    calculatePlanks(getBoardLength())
-}
-
-function clearResults() {
-    appDiv.textContent = "";
-}
 
 
 /*
@@ -328,7 +271,7 @@ function willExtendFromNewPlanks() {
 
 function toggleHideSizeLimit() {
 
-    const sizeLimitWrapper = document.querySelector(".size-limit");
+    const sizeLimitWrapper = document.querySelector(".refine-extensions");
 
     if (willExtendBoards()) {
         sizeLimitWrapper.classList.remove("hidden");
