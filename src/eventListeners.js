@@ -29,6 +29,8 @@
         const id = e.target.id;
         const plankSize = (parseInt(boardLengthInput.value));
         const measurement = parseInt(addCutInput.value);
+
+        console.log(`chb`, id === extendCheckbox.id, measurements.length)
     
         if (id === 'add-cuts__measurements__button' && checkPlankLength(plankSize) && checkMeasurement(measurement)) {
          
@@ -36,10 +38,13 @@
             addCutInput.value = "";
             displayResults();
             
-        } else if (id === extendCheckbox.id && measurements.length) {
+        } else if (id === extendCheckbox.id) {
     
             toggleHideSizeLimit();
-            displayResults();
+
+            if (measurements.length) {
+                displayResults();
+            }
     
         } else if (id === extendFromNewCheckbox.id && measurements.length) {
             displayResults();

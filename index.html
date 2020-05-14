@@ -21,14 +21,14 @@
                         <input type="number" id="board-length__input" class="text-input" value="100"> <span class="cm-span">cm </span><span>long.</span>
                     </div>
                     
-                    <div class="extensions">
-                        <input type="checkbox" id="extensions__input" checked>
-                        <label for="extensions__input">Extend planks with extra bits to fulfil a measurement.</label>
+                    <div class="extensions" title="These options reduce planks required but increase patchwork.">
+                        <input type="checkbox" id="extensions__input">
+                        <label for="extensions__input" >Extend planks with leftovers to fulfil a measurement.</label>
                     </div>
                     
                     <div class="refine-extensions column hidden">
                       
-                        <input type="checkbox" id="extend__from-new-checkbox" checked>
+                        <input type="checkbox" id="extend__from-new-checkbox">
                         <label for="extend__from-new-checkbox">Cut bits from new planks to fulfil a measurement.</label>
                       
                         <br/> <br/>
@@ -41,9 +41,10 @@
                     
                     <div class="add-cuts">
 
-                        <div class="add-cuts__heading">Add a new cut:</div>
+                        <div class="add-cuts__heading"></div>
                         
                         <div class="add-cuts__measurements">
+                            <label for="add-cut">Cut length of </label>
                             <input type="number" id="add-cut" class="add-cuts__measurements__input text-input" value="60"><span class="cm-span">cm</span>
 
                             <div class="add-cuts__measurements__repeat">

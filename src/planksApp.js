@@ -272,7 +272,8 @@ function willExtendFromNewPlanks() {
 function toggleHideSizeLimit() {
 
     const sizeLimitWrapper = document.querySelector(".refine-extensions");
-
+    console.log(`we`, willExtendBoards());
+    
     if (willExtendBoards()) {
         sizeLimitWrapper.classList.remove("hidden");
     } else {
