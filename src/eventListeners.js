@@ -32,7 +32,7 @@
 
         console.log(`chb`, id === extendCheckbox.id, measurements.length)
     
-        if (id === 'add-cuts__measurements__button' && checkPlankLength(plankSize) && checkMeasurement(measurement)) {
+        if (id === 'add-cuts__button' && checkPlankLength(plankSize) && checkMeasurement(measurement)) {
          
             addMeasurement(measurement);
             addCutInput.value = "";
