@@ -71,15 +71,23 @@ body {
 }
 
 .board-length {
-  margin-bottom: var(--spacer);
   padding: 10px var(--padder);
   
   display: flex;
-
   align-items: baseline;
   
   background-color: var(--color-800);
   
+}
+
+.plank-height   {
+  padding: 0 var(--padder) var(--spacer);
+  margin-bottom: var(--spacer);
+
+  display: flex;
+  align-items: baseline;
+
+  background-color: var(--color-800);
 }
 
 .extensions {
@@ -110,7 +118,7 @@ body {
 
 .add-cuts__measurements {
   padding: var(--padder) 0px 15px var(--padder);
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 
   display: flex;
   align-items: baseline;
@@ -119,8 +127,27 @@ body {
 
 }
 
+.add-cuts-subtraction {
+  margin-bottom: 30px;
+  padding: var(--spacer) var(--padder);
+
+  display: flex;
+  align-items: baseline;
+
+  background-color: var(--color-800);
+}
+
+.add-cuts-subraction__remove-text {
+  margin-right: 20px;
+}
+
+
 .add-cuts__measurements__input {
   margin-left: 0 !important;
+}
+
+.add-cuts-subtraction__checkbox {
+  margin: 0 10px 0 0;
 }
 
 .add-cuts__measurements__repeat {

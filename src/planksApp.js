@@ -18,9 +18,9 @@ const countDiv = document.querySelector('.count');
 
 // Input divs
 const boardLengthInput = document.getElementById('board-length__input');
-const sizeLimitInput = document.getElementById("extension-size__input");
 const extendCheckbox = document.getElementById("extensions__input");
 const extendFromNewCheckbox = document.getElementById("extend__from-new-checkbox");
+const sizeLimitInput = document.getElementById("extension-size__input");
 const addCutInput = document.getElementById('add-cut');
 const repeatMeasurement = document.getElementById('add-cuts__measurements__repeat__input');
 
@@ -48,8 +48,9 @@ function calculatePlanks(boardLength) {
 
     resetTotalCuts();
     resetBoardCount();
-    
+
     length = boardLength;
+
     overages = [];
     
     // printItem("Important!: Start with one full board.");

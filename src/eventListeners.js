@@ -30,8 +30,6 @@
         const plankSize = (parseInt(boardLengthInput.value));
         const measurement = parseInt(addCutInput.value);
 
-        console.log(`chb`, id === extendCheckbox.id, measurements.length)
-    
         if (id === 'add-cuts__button' && checkPlankLength(plankSize) && checkMeasurement(measurement)) {
          
             addMeasurement(measurement);
@@ -71,6 +69,31 @@
 
 })();
 
+function subtractHeight(measurement) {
+
+    console.log(measurement);
+
+    const plankHeightInput = document.querySelector(".plank-height__input");
+    const subtractCheckbox = document.getElementById("subtract-checkbox");
+    const doubleSubtractCheckbox = document.getElementById("double-subtract-checkbox");
+    
+    let height = parseInt(plankHeightInput.value);
+
+    if (doubleSubtractCheckbox.checked) {
+        measurement = measurement - height * 2;
+    
+    } else if (subtractCheckbox.checked) {
+        measurement = measurement - height;
+    } else {
+        measurement = measurement;
+        
+    }
+
+    console.log(measurement);
+
+    return measurement;
+}
+
 function toggleLineVisibility(instructions__steps) {
 
     instructions__steps.classList.toggle('instructions__steps--hide');
@@ -100,6 +123,7 @@ function checkPlankLength(plankLength) {
 function addMeasurement(measurement) {
     
     const repitition = parseInt(repeatMeasurement.value);
+    measurement = subtractHeight(measurement);
     
     if (repitition && !isNaN(repitition)) {
         
