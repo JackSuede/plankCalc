@@ -4,39 +4,48 @@
     inputsWrapper.addEventListener("keyup", e => {
         const id = e.target.id;
         
-        const measurement = parseInt(addCutInput.value);
-        const plankSize = (parseInt(boardLengthInput.value));
+        const measurement = parseInt(divs.input.addCut.value);
+        const plankSize = (parseInt(divs.input.boardLength.value));
         const allRequiredIsFilled = checkMeasurement(measurement) && checkPlankLength(plankSize)
     
         if (allRequiredIsFilled) {
             
-            if ((id === addCutInput.id || id === repeatMeasurement.id) && e.key === "Enter") {
+            if ((id === divs.input.addCut.id || id === divs.repeatMeasurement.id) && e.key === "Enter") {
                     addMeasurement(measurement);
-                    addCutInput.value = '';
+                    divs.input.addCut.value = '';
                     displayResults();
             } 
         }
         
-        if ((id === sizeLimitInput.id 
-            || id === boardLengthInput.id) 
+        if ((id === divs.input.sizeLimit.id 
+            || id === divs.input.boardLength.id) 
             && measurements.length) {
                 
                 displayResults();
         }
     });
     
+    // Adds a new measurement to measurements[]
     inputsWrapper.addEventListener("click", e => {
+        
         const id = e.target.id;
-        const plankSize = (parseInt(boardLengthInput.value));
-        const measurement = parseInt(addCutInput.value);
+        const plankSize = (parseInt(divs.input.boardLength.value));
+        const rawMeasurement = parseInt(divs.input.addCut.value);
+        const measurement = subtractHeight(rawMeasurement);
 
+
+        if (measurement <= 0) {
+            alert(`The resulting cut would be "${measurement}cm" (impossible). 
+            \nRequired fix: Adjust the measurements so the cut is a positve number (above zero).`);
+            return;
+        }
         if (id === 'add-cuts__button' && checkPlankLength(plankSize) && checkMeasurement(measurement)) {
          
             addMeasurement(measurement);
-            addCutInput.value = "";
+            divs.input.addCut.value = "";
             displayResults();
             
-        } else if (id === extendCheckbox.id) {
+        } else if (id === divs.checkbox.extend.id) {
     
             toggleHideSizeLimit();
 
@@ -44,13 +53,15 @@
                 displayResults();
             }
     
-        } else if (id === extendFromNewCheckbox.id && measurements.length) {
+        } else if (id === divs.checkbox.extendFromNew.id && measurements.length) {
             displayResults();
         }
     
     });
 
-    appDiv.addEventListener("click", e => {
+
+    // Hide instructions animation
+    divs.app.addEventListener("click", e => {
         const parent = e.target.parentNode;
         const grandparent = parent.parentNode;
         const parentHasStepsBody = parent.classList.contains("instructions");
@@ -71,8 +82,6 @@
 
 function subtractHeight(measurement) {
 
-    console.log(measurement);
-
     const plankHeightInput = document.querySelector(".plank-height__input");
     const subtractCheckbox = document.getElementById("subtract-checkbox");
     const doubleSubtractCheckbox = document.getElementById("double-subtract-checkbox");
@@ -89,9 +98,23 @@ function subtractHeight(measurement) {
         
     }
 
-    console.log(measurement);
-
     return measurement;
+}
+
+function addMeasurement(measurement) {
+    
+    const repitition = parseInt(divs.repeatMeasurement.value);
+    
+    if (repitition && !isNaN(repitition)) {
+        
+        for (let ii = 0; ii < repitition; ii++) {
+            measurements.push(measurement);
+            
+        }
+    } else {
+        measurements.push(measurement);
+    }
+    
 }
 
 function toggleLineVisibility(instructions__steps) {
@@ -120,26 +143,9 @@ function checkPlankLength(plankLength) {
     }
 }
 
-function addMeasurement(measurement) {
-    
-    const repitition = parseInt(repeatMeasurement.value);
-    measurement = subtractHeight(measurement);
-    
-    if (repitition && !isNaN(repitition)) {
-        
-        for (let ii = 0; ii < repitition; ii++) {
-            measurements.push(measurement);
-            
-        }
-    } else {
-        measurements.push(measurement);
-    }
-    
-}
-
 function showCount() {
-    if (countDiv.classList.contains('hide-count')) {
-        countDiv.className = 'count';
+    if (divs.count.classList.contains('hide-count')) {
+        divs.count.className = 'count';
     }
 }
 
@@ -152,5 +158,5 @@ function displayResults() {
 }
 
 function clearResults() {
-    appDiv.textContent = "";
+    divs.app.textContent = "";
 }

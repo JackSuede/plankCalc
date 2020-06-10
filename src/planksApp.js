@@ -10,19 +10,16 @@ Each step body should be both deletable and minimizable (ie marked complete).
 
 */
 
+setTimeout(() => {
+    divs.inputsContainer.classList.remove('inputs-container--closed');
+    divs.parameterInputs.classList.remove('parameter-inputs--closed');
+    
+}, 800);
+
 
 
 // Display divs
-const appDiv = document.getElementById("app");
-const countDiv = document.querySelector('.count');
 
-// Input divs
-const boardLengthInput = document.getElementById('board-length__input');
-const extendCheckbox = document.getElementById("extensions__input");
-const extendFromNewCheckbox = document.getElementById("extend__from-new-checkbox");
-const sizeLimitInput = document.getElementById("extension-size__input");
-const addCutInput = document.getElementById('add-cut');
-const repeatMeasurement = document.getElementById('add-cuts__measurements__repeat__input');
 
 // Other selection
 const instructions = new Instructions();
@@ -69,16 +66,34 @@ function calculatePlanks(boardLength) {
         if the measurement is larger than the full board size.
         */
 
+        let wholePlankCount = 0;
+        let isExtended = false;
+        let extensionCount = 0;
+
         while(measurement > boardLength) {
-            
+
             measurement -= boardLength;
             cut(boardLength);
             newBoard("preserve length")
+            
             instructions.addLine(`Get additional full board: ${boardLength} cm`)
+            
+            if (wholePlankCount === 1) {
+                instructions.addLine(`Then join it together with the previous plank.`)
 
+            } else if (wholePlankCount > 1) {
+                
+                instructions.addLine(`Then join it together with the previous ${wholePlankCount} planks.`)
+
+            }
+
+            isExtended = true;
+            wholePlankCount++;
+            extensionCount++;
         }
 
         if (measurement <= length) {
+
             const bestFit = findBestBit(measurement);
             isCuttingCurrentBoard = true;
 
@@ -130,6 +145,7 @@ function calculatePlanks(boardLength) {
                 instructions.addLine(`Get a new ${boardLength}cm plank.`);
                 instructions.cutLength = length;
 
+                extensionCount++;
 
             } else if ((getBoardLength() - length >= measurement) && willExtendFromNewPlanks() && willExtendBoards() && isLongEnough(measurement - length)) {
                 
@@ -143,6 +159,7 @@ function calculatePlanks(boardLength) {
                 cutLength(difference);
                 instructions.addLine(`Now join the ${prevLength}cm piece to the ${difference}cm piece.`);
                 
+                extensionCount++;
                 
             } else {
 
@@ -157,7 +174,13 @@ function calculatePlanks(boardLength) {
 
             }
             
-            
+        }
+        console.log('extesionCount', extensionCount);
+        
+        if (extensionCount === 1) {
+            instructions.addLine(`Join the new ${measurement}cm cut to the previous plank`);
+        } else if (extensionCount > 1) {
+            instructions.addLine(`Join the new ${measurement}cm cut to the previous planks`);
         }
 
         instructions.totalCut = totalCentimetersCut;
@@ -166,7 +189,7 @@ function calculatePlanks(boardLength) {
         instructions.render();
   }
   
-  countDiv.innerHTML = `You will need ${boardCount} boards<br/>if each board is ${boardLength}cm.`
+  divs.count.innerHTML = `You will need ${boardCount} boards<br/>if each board is ${boardLength}cm.`
   
 }
 
@@ -263,11 +286,11 @@ function findBestBit(requiredAmount) {
 toggleHideSizeLimit();
 
 function willExtendBoards() {
-    return extendCheckbox.checked;
+    return divs.checkbox.extend.checked;
 }
 
 function willExtendFromNewPlanks() {
-    return extendFromNewCheckbox.checked;
+    return divs.checkbox.extendFromNew.checked;
 }
 
 function toggleHideSizeLimit() {
@@ -279,7 +302,7 @@ function toggleHideSizeLimit() {
         sizeLimitWrapper.classList.remove("hidden");
     } else {
         sizeLimitWrapper.classList.add("hidden");
-        extendFromNewCheckbox.checked = false;
+        divs.checkbox.extendFromNew.checked = false;
     }
 }
 
@@ -296,12 +319,12 @@ function isLongEnough(overage) {
   }
 
 function getReusableSizeLimit() {
-    return parseInt(sizeLimitInput.value)|| 0;
+    return parseInt(divs.input.sizeLimit.value)|| 0;
     console.log(getReusableSizeLimit());
     
 }
 
 function getBoardLength() {
-    boardLength = parseInt(boardLengthInput.value);
+    boardLength = parseInt(divs.input.boardLength.value);
     return (boardLength && boardLength >= 1) ? boardLength : 1;
 }
