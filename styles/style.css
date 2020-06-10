@@ -15,7 +15,7 @@ body {
 :root {
   --spacer: 20px;
   --spacer-macro: 40px;
-  --padder: 30px;
+  --padder: 20px;
   --mobile-width: 400px;
   --color-good: hsl(100, 100%, 30%);
   --color-good-2: hsl(100, 100%, 98%);
@@ -23,12 +23,37 @@ body {
   --color-900: #f9f9f9;
   --color-800: #eee;
   --color-700: #ddd;
+  --color-700: #333;
   --color-600: #bbb;
   --color-500: #aaa;
   --color-400: #656565;
-  --color-300: #5a5a5a;
+  --color-300: #333;
   --color-200: #444;
+  --color-200: #252525;
   --color-100: #333;
+  --color-100: #222;
+
+  --color-accent-blue: hsl(191, 60%, 60%);
+  --color-background-blue: hsl(183, 18%, 23%);
+  --color-accent-red: hsl(11, 100%, 65%);
+  --color-accent-text: hsl(190, 50%, 50%);
+  --color-dark-background: hsl(0, 0%, 14%);
+}
+
+input {
+  padding: 10px !important;
+  box-sizing: content-box;
+  background-color: var(--color-dark-background);
+  background-color: hsl(183, 18%, 33%);
+  color: var(--color-accent-blue);
+  border: none
+}
+
+
+
+#extensions__input {
+  appearance: none;
+  background-color: blue;
 }
 
 #root {
@@ -47,13 +72,18 @@ body {
   flex-direction: column;
   align-items: center;
   background-color: var(--color-200);
+  background-color: var(--color-dark-background);
 }
 
 
 .inputs-container {
   /* Child of Content */
+  transition: all 800ms ease-out;
+
+  max-height: 100vh;
+  overflow: hidden;
   padding: 10px;
-  margin: 0 0 var(--spacer-macro) 0;
+  margin: var(--spacer-macro) 0 var(--spacer-macro) 0;
 
   display: flex;
   flex-direction: column;
@@ -61,17 +91,43 @@ body {
   align-items: center;
   
   background-color: var(--color-300);
+  background-color: var(--color-dark-background);
+}
+
+.inputs-container--closed {
+  max-height: 0;
 }
 
 .parameter-inputs {
-  
-  padding: 10px;
+  transition: all 300ms;
+
+  max-height: 100vh;
+  overflow: hidden;
+  padding: 30px 25px;
   background-color: var(--color-700);
 
 }
 
-.board-length {
+.parameter-inputs--closed {
+  max-height: 0px;
+  padding: 0px
+}
+
+.parameter-inputs div {
+  background-color: var(--color-background-blue);
+  color: var(--color-accent-blue);
+}
+
+.parameter-inputs__heading {
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: var(--color-accent-red) !important;
+  background-color: #333 !important;
+}
+
+.plank-dimensions {
   padding: 10px var(--padder);
+  margin-bottom: var(--spacer);
   
   display: flex;
   align-items: baseline;
@@ -81,8 +137,8 @@ body {
 }
 
 .plank-height   {
-  padding: 0 var(--padder) var(--spacer);
-  margin-bottom: var(--spacer);
+  padding: 10px var(--padder);
+  margin-left: 30px;
 
   display: flex;
   align-items: baseline;
@@ -128,8 +184,8 @@ body {
 }
 
 .add-cuts-subtraction {
-  margin-bottom: 30px;
-  padding: var(--spacer) var(--padder);
+  margin-bottom: 20px;
+  padding: 20px var(--padder);
 
   display: flex;
   align-items: baseline;
@@ -166,13 +222,14 @@ body {
 
 #add-cuts__button {
   padding: 10px 30px;
-  margin: 0 0 30px 0px;
+  margin: 0 0 30px var(--padder);
   border: none;
   border-radius: 100px;
   
   color: var(--color-good-2);
   background: var(--color-good);
- 
+  background-color: var(--color-accent-red);
+
   cursor: pointer;
 }
 
@@ -188,8 +245,9 @@ body {
   text-align: center;
 
   font-weight: bold;
-  color: var(--color-400);
+  color: var(--color-600);
   background-color: var(--color-700);
+  background-color: var(--color-dark-background);
   /* box-shadow: inset 5px 5px 5px -4px #777; */
 
   overflow: hidden;
@@ -210,16 +268,24 @@ body {
   /* Child of App */
   width: 100%;
   margin: 0 0 var(--spacer-macro) 0;
+  border-top: 1px solid var(--color-background-blue);
   color: var(--color-700);
 }
 
 .instructions__heading {
   padding: var(--padder);
   background-color: var(--color-400);
+  background-color: var(--color-dark-background);
+  background-color: #333;
+  background-color: var(--color-dark-background);
+  background-color: hsl(202, 8%, 19%);
+
+
 }
 
 .instructions__heading__measurement {
   font-size: 1.1rem;
+  color: var(--color-accent-blue);
 }
 
 .instructions__heading__starting-length {
@@ -232,6 +298,7 @@ body {
 
   transition: 200ms;
   overflow: hidden;
+  
 }
 
 .instructions__steps--hide {
@@ -241,14 +308,21 @@ body {
 .instructions__steps__heading {
   padding: var(--padder);
   padding-bottom: 20px;
+
+  color: var(--color-accent-red);
+  color: var(--color-600);
   background-color: var(--color-100);
+  background-color: var(--color-background-blue);
+
 }
 
 .instructions__steps__step {
   padding-bottom: 20px;
   padding-left: var(--padder);
 
+  color: var(--color-accent-blue);
   background-color: var(--color-100);
+  background-color: var(--color-background-blue);
   
 }
 
@@ -257,13 +331,14 @@ body {
 }
 
 .instructions__summary {
-  padding: var(--padder);
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 15px var(--padder);
 
   font-size: 0.8rem;
   color: var(--color-600);
   background-color: var(--color-100);
+  background-color: var(--color-dark-background);
+  background-color: hsl(202, 8%, 19%);
+
 }
 
 .text-input {
