@@ -52,8 +52,8 @@ input {
 
 
 #extensions__input {
-  appearance: none;
-  background-color: blue;
+ /* appearance: none;*/
+ /* background-color: blue;*/
 }
 
 #root {
